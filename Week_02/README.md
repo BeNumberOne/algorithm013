@@ -1,3 +1,50 @@
+## Note
+
+### Binary Heap
+Properties:
+* The find max(Min)  O(1)
+* Any node's value is always bigger than its left branch and right branch.
+* In case the root node's array index is 0,  current node's index is i:
+	* Left child index = 2i+1
+	* Right child index = 2i+2
+	* Father node index = floor((i-1)/2)
+
+### Stack in C#
+
+1. For method **Pop()** and **Peek()** , Stack.Count should be checked before invoking these two methods. 
+Otherwise, InvalidOperationException will be thrown in case Count is zero. 
+https://docs.microsoft.com/en-us/dotnet/api/system.collections.stack.peek?view=netcore-3.1
+
+**Bad example** in LeetCode coding practice:
+
+```C#
+public class Solution {
+    public bool IsValid(string s) 
+    {    
+        if(s==null) return false;
+
+        var stack = new Stack<char>();
+        for(int i = 0; i < s.Length; i++)
+        {
+            if(s[i] == '(') stack.Push(')');
+            if(s[i] == '[') stack.Push(']');
+            if(s[i] == '{') stack.Push('}');
+            if(s[i] == ')' || s[i] == ']'|| s[i] == '}')
+            {
+                if(s[i] != stack.Peek()) // Exception will be thrown here in some cases
+                {
+                    return false;
+                }
+                stack.Pop();                
+            }
+        }
+        return stack.Count == 0;
+    }
+}
+```
+
+
+
 ## LeetCode Daily
 
 ### 239 sliding-window-maximum **Hard**
