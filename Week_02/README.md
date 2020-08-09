@@ -1,19 +1,32 @@
-## Note
+# Note
 
-### Binary Heap
+## Priority queue
 Properties:
-* The find max(Min)  O(1)
-* Any node's value is always bigger than its left branch and right branch.
-* In case the root node's array index is 0,  current node's index is i:
+* Insert O(1)
+* Find O(logN)
+* There are a lot of ways to implement priority queue: Heap, bst, treap.
+
+## Binary Heap
+Properties:
+* Find Max(or Min)  O(1)
+* Insert/Heapify O(logN)
+* Sort O(NlogN)
+* Heigth of binary tree : Θ(LogN)
+* In case the root is the max one, all nodes are bigger than their left branch and right branch. Vice versa.
+* If the root node's array index is 0,  current node's index is i:
 	* Left child index = 2i+1
 	* Right child index = 2i+2
 	* Father node index = floor((i-1)/2)
 
-### Stack in C#
+### Priority Queue & Binary Heaps with C#
+<https://visualstudiomagazine.com/articles/2012/11/01/priority-queues-with-c.aspx>
+>  Somewhat surprisingly, the Microsoft .NET Framework doesn't contain a priority queue class. One of the main reasons for this omission is that in most programming scenarios that require a priority queue, you must heavily customize features of the queue to meet your particular needs.
+
+### Stack with C#
 
 1. For method **Pop()** and **Peek()** , Stack.Count should be checked before invoking these two methods. 
 Otherwise, InvalidOperationException will be thrown in case Count is zero. 
-https://docs.microsoft.com/en-us/dotnet/api/system.collections.stack.peek?view=netcore-3.1
+<https://docs.microsoft.com/en-us/dotnet/api/system.collections.stack.peek?view=netcore-3.1>
 
 **Bad example** in LeetCode coding practice:
 
@@ -45,7 +58,7 @@ public class Solution {
 
 
 
-## LeetCode Daily
+# LeetCode Daily
 
 ### 239 sliding-window-maximum **Hard**
 #### Best Soultion: Deque
